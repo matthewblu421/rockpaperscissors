@@ -18,8 +18,10 @@ function computerPlay(){
 }
 
 function playerPlay() {
+    while(true) {
     let playerChoice = prompt("Rock, Paper, or Scissors?");
     let playerChoiceCaps = playerChoice.toLowerCase();
+    
     if(playerChoiceCaps === "rock") {        
         return "Rock";
     } else if (playerChoiceCaps === "scissors") {
@@ -27,6 +29,9 @@ function playerPlay() {
     } else if (playerChoiceCaps === "paper") {
         return "Paper";
     }
+
+    alert("Invalid input! Please type \"Rock\", \"Paper\", or \"Scissors\"")
+}
 }
 
 function playRound(playerSelection, computerSelection)
