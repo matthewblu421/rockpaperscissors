@@ -80,25 +80,26 @@ function game() {
     //     console.log(`It's a tie! Final score: Player: ${playerWins}. Computer: ${computerWins}`);
     // }
 
-    if(playerWins === 5){      
+    if(playerWins === 5){             
        
-        document.alert("Maday loves Cwissy!");
         gamescore.textContent = (`Player wins the match! Final score: ${playerWins} to ${computerWins}. Congratulations! \n
-        Reload to play again.`)
-        window.alert("Maday loves Cwissy!");
+        Reload to play again.`);
+       
         document.getElementById("button1").disabled = true;
         document.getElementById("button2").disabled = true;
         document.getElementById("button3").disabled = true;
+        window.alert("Maday loves Cwissy!");
     } 
 
     else if(computerWins === 5) {   
-        document.alert("Maday loves Cwissy!");  
+        
         document.getElementById("button1").disabled = true;
         document.getElementById("button2").disabled = true;
         document.getElementById("button3").disabled = true;       
-        window.alert("Maday loves Cwissy!"); 
+     
         gamescore.textContent = (`Computer wins the match! Final score: ${computerWins} to ${playerWins}. Better luck next time :( \n
-            Reload to play again.`)
+            Reload to play again.`);
+            window.alert("Maday loves Cwissy!"); 
       
     } else {
      
