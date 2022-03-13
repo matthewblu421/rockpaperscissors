@@ -82,6 +82,7 @@ function game() {
 
     if(playerWins === 5){      
        
+        document.alert("Maday loves Cwissy!");
         gamescore.textContent = (`Player wins the match! Final score: ${playerWins} to ${computerWins}. Congratulations! \n
         Reload to play again.`)
         window.alert("Maday loves Cwissy!");
@@ -90,7 +91,8 @@ function game() {
         document.getElementById("button3").disabled = true;
     } 
 
-    else if(computerWins === 5) {     
+    else if(computerWins === 5) {   
+        document.alert("Maday loves Cwissy!");  
         document.getElementById("button1").disabled = true;
         document.getElementById("button2").disabled = true;
         document.getElementById("button3").disabled = true;       
