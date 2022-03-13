@@ -58,7 +58,7 @@ function playRound(playerSelection, computerSelection)
     ((playerSelection === "Paper") && (computerSelection === "Paper")) ||
     ((playerSelection === "Rock") && (computerSelection === "Rock")))    
     {   ties++;
-        gameresults.textContent = (`${playerSelection} matches ${computerSelection}: it's a tie! Re-play the round.`);
+        gameresults.textContent = (`${playerSelection} ties ${computerSelection}: Re-play the round.`);
         game();
         return (`${playerSelection} matches ${computerSelection}: it's a tie!`);
     }
