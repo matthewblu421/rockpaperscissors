@@ -2,6 +2,7 @@ let playerWins = 0;
 let computerWins = 0;
 let ties = 0;
 
+
 function computerPlay(){
     let randomNum = (Math.floor(Math.random() * 3));
     if (randomNum === 0) {
@@ -14,7 +15,6 @@ function computerPlay(){
         
         return "Scissors";
     }
-
 }
 
 function playerPlay() {
@@ -41,7 +41,8 @@ function playRound(playerSelection, computerSelection)
     ((playerSelection === "Paper") && (computerSelection === "Rock")))
     {
         playerWins++;
-        console.log(`${playerSelection} beats ${computerSelection}! You win the round.`);
+        gameresults.textContent = (`${playerSelection} beats ${computerSelection}! You win the round.`);
+        game();
         return (`${playerSelection} beats ${computerSelection}! You win the round.`);
     }
     else if (((playerSelection === "Scissors") && (computerSelection === "Rock")) ||
@@ -49,33 +50,48 @@ function playRound(playerSelection, computerSelection)
     ((playerSelection === "Paper") && (computerSelection === "Scissors")))
     {   
         computerWins++;
-        console.log(`${computerSelection} beats ${playerSelection}! You lose the round.`);
+        gameresults.textContent = (`${computerSelection} beats ${playerSelection}! You lose the round.`);
+        game();
     return (`${computerSelection} beats ${playerSelection}! You lose the round.`);
 
     } else if (((playerSelection === "Scissors") && (computerSelection === "Scissors")) ||
     ((playerSelection === "Paper") && (computerSelection === "Paper")) ||
     ((playerSelection === "Rock") && (computerSelection === "Rock")))    
     {   ties++;
-        console.log(`${playerSelection} matches ${computerSelection}: it's a tie!`);
+        gameresults.textContent = (`${playerSelection} matches ${computerSelection}: it's a tie! Re-play the round.`);
+        game();
         return (`${playerSelection} matches ${computerSelection}: it's a tie!`);
     }
 
 }
 
 function game() {   
-    for (let i = 0; i < 5; i++) {
-        playRound(playerPlay(), computerPlay());      
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(playerPlay(), computerPlay());      
+    // }
     
-    if(playerWins > computerWins) {
-        console.log(`You win the game by a score of ${playerWins} to ${computerWins}`);
-    }
-    if(computerWins > playerWins) {
-        console.log(`The computer wins by a score of ${playerWins} to ${computerWins}`);
-    }
-    if(computerWins === playerWins) {
-        console.log(`It's a tie! Final score: Player: ${playerWins}. Computer: ${computerWins}`);
+    // if(playerWins > computerWins) {
+    //     console.log(`You win the game by a score of ${playerWins} to ${computerWins}`);
+    // }
+    // if(computerWins > playerWins) {
+    //     console.log(`The computer wins by a score of ${playerWins} to ${computerWins}`);
+    // }
+    // if(computerWins === playerWins) {
+    //     console.log(`It's a tie! Final score: Player: ${playerWins}. Computer: ${computerWins}`);
+    // }
+
+    if(playerWins === 5){
+        gamescore.textContent = (`Player wins the match! Final score: ${playerWins} to ${computerWins}. Congratulations!`)
+    } 
+
+    else if(computerWins === 5) {
+        gamescore.textContent = (`Computer wins the match! Final score: ${computerWins} to ${playerWins}. Better luck next time :(`)
+    } else {
+        gamescore.textContent = (`Player: ${playerWins} points | Computer:  ${computerWins} points.`);
     }
 }
+document.getElementById("button1").addEventListener("click", () => playRound("Rock", computerPlay()));
+document.getElementById("button2").addEventListener("click", () => playRound("Paper", computerPlay()));
+document.getElementById("button3").addEventListener("click", () =>  playRound("Scissors", computerPlay()));
 
-game();
+
