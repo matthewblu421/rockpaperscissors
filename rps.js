@@ -80,9 +80,17 @@ function game() {
     gamescore.textContent = `Player wins the match! Final score: ${playerWins} to ${computerWins}. Congratulations! \n
         Reload to play again.`;
 
+    const finalMessage = document.createElement("div");
+    finalMessage.classList.add("finalMessage");
+    const gameResults = document.querySelector("#gameresults");
+    finalMessage.textContent = "GAME OVER";
+
+    gameResults.appendChild(finalMessage);
+
     document.getElementById("button1").disabled = true;
     document.getElementById("button2").disabled = true;
     document.getElementById("button3").disabled = true;
+
     window.alert("You win! =)");
   } else if (computerWins === 5) {
     document.getElementById("button1").disabled = true;
@@ -91,6 +99,14 @@ function game() {
 
     gamescore.textContent = `Computer wins the match! Final score: ${computerWins} to ${playerWins}. Better luck next time :( \n
             Reload to play again.`;
+
+    const finalMessage = document.createElement("div");
+    finalMessage.classList.add("finalMessage");
+    const gameResults = document.querySelector("#gameresults");
+    finalMessage.textContent = "GAME OVER";
+    gameResults.appendChild(finalMessage);
+
+
     window.alert("Computer wins =(");
   } else {
     gamescore.textContent = `Player: ${playerWins} points | Computer:  ${computerWins} points.`;
